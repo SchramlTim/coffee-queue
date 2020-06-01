@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <style>
+        .centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            /* bring your own prefixes */
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .countstyle {
+            font-size: 17.5rem;
+        }
+        
+        .textstyle {
+            font-size: 8rem;
+        }
+    </style>
+    <script>
+        setInterval(function() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                    if (xmlhttp.status == 200) {
+                        document.getElementById("count").innerHTML = xmlhttp.responseText.replace('"', '').replace('"', '');
+                    } else if (xmlhttp.status == 400) {
+                        alert('There was an error 400');
+                    } else {
+                        alert('something else other than 200 was returned');
+                    }
+                }
+            };
+
+            xmlhttp.open("GET", "/count", true);
+            xmlhttp.send();
+        }, 1000);
+    </script>
+
+</head>
+
+<body>
+    <div class="centered">
+        <span class="countstyle" id="count"></span><br/>
+        <span class="textstyle">person on coffee machine</span>
+    </div>
+</body>
+
+</html>

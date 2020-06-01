@@ -1,0 +1,4 @@
+numpy
+wget
+opencv_python
+Flask
