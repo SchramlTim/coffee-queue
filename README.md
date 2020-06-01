@@ -8,6 +8,9 @@ Also there is a Flask server which provides a web dashboard.
 Future idea: get setup run on a raspberry pi
 
 #### Setup 💿
+tested on:
+* python 3.8
+
 run the following commands in order
 
 * pip install -r requirements.txt
